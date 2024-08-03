@@ -1,6 +1,0 @@
-PantryCraft, Senior Project | JavaScript, HTML/CSS, Python, SQL
-- Created a Full Stack food recipe generation website that creates recipes based on user-input ingredients
-- Incorporated 3 machine learning tools: OpenAI to dynamically generate recipes and Computer Vision with
-Optical Character Recognition for simplified ingredient inputs through receipt scanning
-- Leveraged 3 key components: React for a dynamic frontend, Express for a robust backend, and MongoDB for
-storing generated recipes and user ingredient inputs in JSON format

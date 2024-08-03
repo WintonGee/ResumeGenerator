@@ -1,5 +1,0 @@
-Hotel Reservation System, Databases Final Project | SQL, Java
-- Built an application to manage the SQL database of a hotel reservation system containing sample data of
-10,000 reservations
-- Generated 5 personalized reservation options based on preferred room type and desired dates of stay
-- Incorporated error handling to ensure accurate reservations by validating date ranges and room availability

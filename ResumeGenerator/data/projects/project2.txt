@@ -1,5 +1,0 @@
-Cryptocurrency Trading Bot, Personal Project | Java
-- Developed an application to profit through trading cryptocurrencies through identifying market trends
-- Applied 6 technical trading indicators, moving averages, Bollinger bands, RSI, MACD, Fibonacci retracement,
-and Stochastic oscillator to determine trade decisions
-- Stored and utilized 5 years of past data on trade volumes and prices using Binance API and Gson API

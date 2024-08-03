@@ -1,53 +1,33 @@
 package com.example.generators;
 
 import com.example.data.Experience;
-import java.util.List;
-
 import com.example.util.LatexUtils;
+import java.util.List;
 
 public class ExperienceGenerator {
 
-    private List < Experience > experiences;
+    private List<Experience> experiences;
 
-    public ExperienceGenerator(List < Experience > experiences) {
+    public ExperienceGenerator(List<Experience> experiences) {
         this.experiences = experiences;
     }
 
     public String generateExperience() {
-        StringBuilder experienceSection = new StringBuilder();
-        experienceSection.append(LatexUtils.generateSectionHeader("Experience"));
-        
+        StringBuilder experience = new StringBuilder();
+        String section = LatexUtils.generateSectionHeader("Experience");
+        experience.append(section);
 
-        for (Experience experience : experiences) {
-            experienceSection.append(formatExperience(experience));
+        for (Experience exp : experiences) {
+            experience.append("\\begin{tabularx}{\\textwidth}{@{} >{\\raggedright\\arraybackslash}X >{\\centering\\arraybackslash}X >{\\raggedleft\\arraybackslash}X @{} }\n")
+                      .append("\\textbf{").append(exp.getTitle()).append("} & \\textbf{").append(exp.getCompany()).append("} & \\textbf{").append(exp.getDate()).append("} \\\\\n")
+                      .append("\\end{tabularx}\n")
+                      .append("\\begin{itemize}[leftmargin=*,label=\\textbullet]\n");
+            for (String responsibility : exp.getResponsibilities()) {
+                experience.append("  \\item ").append(responsibility).append("\n");
+            }
+            experience.append("\\end{itemize}\n");
         }
 
-        return experienceSection.toString();
-    }
-
-    private String formatExperience(Experience experience) {
-        StringBuilder experienceEntry = new StringBuilder();
-        experienceEntry.append("\\begin{tabularx}{\\textwidth}{ l X r }\n")
-                .append(formatExperienceHeader(experience))
-                .append("\\end{tabularx}\n")
-                .append("\\begin{itemize}[leftmargin=*,label=\\textbullet]\n");
-
-        for (String responsibility : experience.getResponsibilities()) {
-            experienceEntry.append(formatResponsibility(responsibility));
-        }
-
-        experienceEntry.append("\\end{itemize}\n")
-                .append("\\vspace{10pt}\n");
-
-        return experienceEntry.toString();
-    }
-
-    private String formatExperienceHeader(Experience experience) {
-        return String.format("\\textbf{%s} & \\centering \\textbf{%s} & \\textbf{%s} \\\\\n",
-                experience.getTitle(), experience.getCompany(), experience.getDate());
-    }
-
-    private String formatResponsibility(String responsibility) {
-        return String.format("  \\item %s\n", responsibility);
+        return experience.toString();
     }
 }

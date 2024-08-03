@@ -1,8 +1,0 @@
-Software Engineer | Freelance March 2020 - August 2022
-- Utilized Tribot Java Script SDK to automate character progression and resource collection on 200 activities
-and 70 quests in an MMORPG game
-- Released 4 free software automation products to attract 250 users for private custom automation projects
-- Collaborated with customers to develop 5 successful custom projects, continually improving processes by
-incorporating new ideas and solving previously unaccounted problems
-- Devoted 3000 hours to rewriting code on free products to improve resource efficiency and organization,
-while continuously exploring new tools such as React, MongoDB, and OpenAI

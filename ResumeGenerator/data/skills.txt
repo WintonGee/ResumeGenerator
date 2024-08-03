@@ -1,2 +1,0 @@
-Programming Languages: Java, Python, JavaScript, SQL, C++, C, Scala, HTML/CSS, Assembly, C#
-Software Tools: Git, Linux, MongoDB, JSON, OpenAI, Computer Vision, Spark, REST API, React, Express

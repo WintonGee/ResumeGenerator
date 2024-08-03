@@ -4,6 +4,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\pagestyle{empty}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -12,9 +15,19 @@
 }
 \begin{document}
 \begin{center}
-    \textbf{\Large Winton Gee} \\
-    \vspace{5pt}
-    \href{mailto:wintongee@gmail.com}{wintongee@gmail.com} \textbar{} 415-806-3004 \textbar{} \href{https://linkedin.com/in/wintongee}{linkedin.com/in/wintongee} \textbar{} \href{https://wintongee.com}{wintongee.com} \textbar{} \href{https://github.com/wintongee}{github.com/wintongee}
+    \begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}X >{\centering\arraybackslash}X >{\raggedleft\arraybackslash}X @{} }
+        \begin{tabular}{@{}l@{}}
+            San Francisco, CA \\
+            \href{mailto:wintongee@gmail.com}{wintongee@gmail.com} \\
+            415-806-3004
+        \end{tabular} &
+        \textbf{\Large Winton Gee} &
+        \begin{tabular}{@{}r@{}}
+            \href{https://linkedin.com/in/wintongee}{linkedin.com/in/wintongee} \\
+            \href{https://wintongee.com}{wintongee.com} \\
+            \href{https://github.com/wintongee}{github.com/wintongee}
+        \end{tabular}
+    \end{tabularx}
 \end{center}
 \section*{Education}
 \vspace{-18pt}
@@ -24,4 +37,51 @@
 \textbf{California Polytechnic State University} & & San Luis Obispo, CA \\
 Bachelor of Science Degree in \textbf{Computer Science} & & June 2024
 \end{tabularx}
+\section*{Experience}
+\vspace{-18pt}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{5pt}
+\begin{tabularx}{\textwidth}{ l X r }
+\textbf{Software Engineering Intern} & \centering \textbf{Ricoh USA} & \textbf{June 2023 - September 2023} \\
+\end{tabularx}
+\begin{itemize}[leftmargin=*,label=\textbullet]
+  \item Deployed 8 Python-based Lambda functions on AWS Lambda as part of the Microservices team
+  \item Ensured quality through leveraging Postman for API testing and comparing test results across NoSQL servers
+  \item Followed the instructions and expectations for each Lambda function as specified on Azure DevOps
+\end{itemize}
+\vspace{10pt}
+\begin{tabularx}{\textwidth}{ l X r }
+\textbf{Software Engineering Intern} & \centering \textbf{ListIt} & \textbf{April 2023 - June 2023} \\
+\end{tabularx}
+\begin{itemize}[leftmargin=*,label=\textbullet]
+  \item Collaborated with a team of 5 classmates to deliver an intuitive todo list web app within 3 sprints
+  \item Achieved 100\% test coverage across 57 JavaScript functions using JEST in a Full Stack project
+  \item Implemented continuous integration, ESLint, and Prettier for code consistency and reduced merge errors
+\end{itemize}
+\vspace{10pt}
+\section*{Projects}
+\vspace{-18pt}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{5pt}
+\textbf{PantryCraft, Senior Project} (JavaScript, HTML/CSS, Python, SQL) \\
+\begin{itemize}[leftmargin=*,label=\textbullet]
+  \item Created a Full Stack food recipe generation website that creates recipes based on user-input ingredients
+  \item Incorporated 3 machine learning tools: OpenAI to dynamically generate recipes and Computer Vision with Optical Character Recognition for simplified ingredient inputs through receipt scanning
+  \item Leveraged 3 key components: React for a dynamic frontend, Express for a robust backend, and MongoDB for storing generated recipes and user ingredient inputs in JSON format
+\end{itemize}
+\vspace{10pt}
+\textbf{Cryptocurrency Trading Bot, Personal Project} (Java) \\
+\begin{itemize}[leftmargin=*,label=\textbullet]
+  \item Developed an application to profit through trading cryptocurrencies through identifying market trends
+  \item Applied 6 technical trading indicators, moving averages, Bollinger bands, RSI, MACD, Fibonacci retracement, and Stochastic oscillator to determine trade decisions
+  \item Stored and utilized 5 years of past data on trade volumes and prices using Binance API and Gson API
+\end{itemize}
+\vspace{10pt}
+\textbf{Hotel Reservation System, Databases Final Project} (SQL, Java) \\
+\begin{itemize}[leftmargin=*,label=\textbullet]
+  \item Built an application to manage the SQL database of a hotel reservation system containing sample data of 10,000 reservations
+  \item Generated 5 personalized reservation options based on preferred room type and desired dates of stay
+  \item Incorporated error handling to ensure accurate reservations by validating date ranges and room availability
+\end{itemize}
+\vspace{10pt}
 \end{document}

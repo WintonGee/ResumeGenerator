@@ -1,4 +1,0 @@
-Software Engineering Intern | ListIt April 2023 - June 2023
-- Collaborated with a team of 5 classmates to deliver an intuitive todo list web app within 3 sprints
-- Achieved 100% test coverage across 57 JavaScript functions using JEST in a Full Stack project
-- Implemented continuous integration, ESLint, and Prettier for code consistency and reduced merge errors

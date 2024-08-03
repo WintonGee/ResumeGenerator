@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.1)  1 AUG 2024 14:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.1)  2 AUG 2024 13:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -190,34 +190,64 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks19
 \inpenc@posthook=\toks20
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 10.
+(/usr/local/texlive/2024basic/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
+
+(/usr/local/texlive/2024basic/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen153
+\ar@mcellbox=\box51
+\extrarowheight=\dimen154
+\NC@list=\toks21
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box52
+)
+\TX@col@width=\dimen155
+\TX@old@table=\dimen156
+\TX@old@col=\dimen157
+\TX@target=\dimen158
+\TX@delta=\dimen159
+\TX@cols=\count277
+\TX@ftn=\toks22
+)
+(/usr/local/texlive/2024basic/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip53
+\enit@outerparindent=\dimen160
+\enit@toks=\toks23
+\enit@inbox=\box53
+\enit@count@id=\count278
+\enitdp@description=\count279
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 13.
 
 (/usr/local/texlive/2024basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
 ef
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count277
-\l__pdf_internal_box=\box51
+\l__color_backend_stack_int=\count280
+\l__pdf_internal_box=\box54
 ) (./resume.aux)
 \openout1 = `resume.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -266,54 +296,57 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 
 (/usr/local/texlive/2024basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count278
-\scratchdimen=\dimen153
-\scratchbox=\box52
-\nofMPsegments=\count279
-\nofMParguments=\count280
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count281
-\MPscratchDim=\dimen154
-\MPnumerator=\count282
-\makeMPintoPDFobject=\count283
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count281
+\scratchdimen=\dimen161
+\scratchbox=\box55
+\nofMPsegments=\count282
+\nofMParguments=\count283
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count284
+\MPscratchDim=\dimen162
+\MPnumerator=\count285
+\makeMPintoPDFobject=\count286
+\everyMPtoPDFconversion=\toks25
 )) (/usr/local/texlive/2024basic/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 11.
+Package hyperref Info: Link coloring ON on input line 14.
 
 (./resume.out) (./resume.out)
 \@outlinefile=\write3
 \openout3 = `resume.out'.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 13.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 13.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
+8.
 
+(/usr/local/texlive/2024basic/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
 
-! LaTeX Error: Illegal character in array arg.
+! LaTeX Error: Something's wrong--perhaps a missing \item.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.13 ...acolsep{\fill}c@{}\extracolsep{\fill}r@{}}
-                                                  
+l.34 \end{tabularx}
+                   
 ? 
 ! Emergency stop.
  ...                                              
                                                   
-l.13 ...acolsep{\fill}c@{}\extracolsep{\fill}r@{}}
-                                                  
-You're in trouble here.  Try typing  <return>  to proceed.
+l.34 \end{tabularx}
+                   
+Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
  
 Here is how much of TeX's memory you used:
- 8522 strings out of 475567
- 133117 string characters out of 5777890
- 1925187 words of memory out of 5000000
- 30620 multiletter control sequences out of 15000+600000
- 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 9002 strings out of 475567
+ 141213 string characters out of 5777890
+ 1927187 words of memory out of 5000000
+ 31084 multiletter control sequences out of 15000+600000
+ 558982 words of font info for 39 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,4n,79p,266b,146s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,379b,201s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

@@ -1,15 +1,28 @@
-.PHONY: all clean
+# Find all Java source files in src/main/java and ResumeGenerator/data
+SOURCES := $(shell find src/main/java -name '*.java')
 
-all: compile run open
+# Output directory
+OUT_DIR := out
 
-compile:
-	javac -d out src/main/java/com/example/Main.java src/main/java/com/example/util/LatexUtils.java src/main/java/com/example/generators/HeaderGenerator.java src/main/java/com/example/generators/EducationGenerator.java
+# Compile all Java source files
+all: $(OUT_DIR)
+	make clean
+	javac -d $(OUT_DIR) $(SOURCES)
+	java -cp $(OUT_DIR) com.example.Main
 
+# Create the output directory
+$(OUT_DIR):
+	mkdir -p $(OUT_DIR)
+
+# Clean up build artifacts
+clean:
+	rm -rf $(OUT_DIR)
+	rm -f output/resume.tex output/resume.pdf
+
+# Run the main class
 run:
-	java -cp out com.example.Main
+	java -cp $(OUT_DIR) com.example.Main
 
+# Open the generated PDF
 open:
 	open output/resume.pdf
-
-clean:
-	rm -rf out output/resume.pdf output/resume.tex

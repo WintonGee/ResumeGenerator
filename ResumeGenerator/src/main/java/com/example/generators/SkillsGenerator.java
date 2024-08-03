@@ -1,17 +1,29 @@
 package com.example.generators;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
+import com.example.data.Skills;
+import com.example.util.LatexUtils;
 
 public class SkillsGenerator {
-    public String generateSkills(String filePath) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get(filePath));
-        StringBuilder skillsSection = new StringBuilder("\\section*{Skills}\n");
-        for (String line : lines) {
-            skillsSection.append(line).append(" \\\\\n");
-        }
+
+    private Skills skills;
+
+    public SkillsGenerator(Skills skills) {
+        this.skills = skills;
+    }
+
+    public String generateSkills() {
+        StringBuilder skillsSection = new StringBuilder();
+        String section = LatexUtils.generateSectionHeader("Skills");
+        skillsSection.append(section);
+
+        skillsSection.append("\\textbf{Programming Languages}: ");
+        skillsSection.append(String.join(", ", skills.getProgrammingLanguages()));
+        skillsSection.append("\\\\\n");
+
+        skillsSection.append("\\textbf{Software Tools}: ");
+        skillsSection.append(String.join(", ", skills.getTools()));
+        skillsSection.append("\\\\\n");
+
         return skillsSection.toString();
     }
 }

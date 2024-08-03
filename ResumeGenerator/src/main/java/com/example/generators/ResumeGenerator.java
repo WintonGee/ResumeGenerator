@@ -1,5 +1,6 @@
 package com.example.generators;
 
+import com.example.util.LatexUtils;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -9,12 +10,14 @@ public class ResumeGenerator {
     private EducationGenerator educationGenerator;
     private ExperienceGenerator experienceGenerator;
     private ProjectsGenerator projectsGenerator;
+    private SkillsGenerator skillsGenerator;
 
-    public ResumeGenerator(HeaderGenerator headerGenerator, EducationGenerator educationGenerator, ExperienceGenerator experienceGenerator, ProjectsGenerator projectsGenerator) {
+    public ResumeGenerator(HeaderGenerator headerGenerator, EducationGenerator educationGenerator, ExperienceGenerator experienceGenerator, ProjectsGenerator projectsGenerator, SkillsGenerator skillsGenerator) {
         this.headerGenerator = headerGenerator;
         this.educationGenerator = educationGenerator;
         this.experienceGenerator = experienceGenerator;
         this.projectsGenerator = projectsGenerator;
+        this.skillsGenerator = skillsGenerator;
     }
 
     public void generateResume() {
@@ -22,6 +25,7 @@ public class ResumeGenerator {
         String education = educationGenerator.generateEducation();
         String experience = experienceGenerator.generateExperience();
         String projects = projectsGenerator.generateProjects();
+        String skills = skillsGenerator.generateSkills();
 
         StringBuilder resumeContent = new StringBuilder();
         resumeContent.append("\\documentclass[a4paper,10pt]{article}\n")
@@ -31,7 +35,7 @@ public class ResumeGenerator {
                      .append("\\usepackage{tabularx}\n")
                      .append("\\usepackage{array}\n")
                      .append("\\usepackage{enumitem}\n")
-                     .append("\\usepackage{fancyhdr}\n")
+                     .append("\\usepackage[none]{hyphenat}\n")
                      .append("\\pagestyle{empty}\n")
                      .append("\\hypersetup{\n")
                      .append("    colorlinks=true,\n")
@@ -44,6 +48,7 @@ public class ResumeGenerator {
                      .append(education)
                      .append(experience)
                      .append(projects)
+                     .append(skills)
                      .append("\\end{document}\n");
 
         try {
