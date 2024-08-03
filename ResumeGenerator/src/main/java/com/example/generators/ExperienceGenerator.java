@@ -1,22 +1,53 @@
 package com.example.generators;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
+import com.example.data.Experience;
 import java.util.List;
 
+import com.example.util.LatexUtils;
+
 public class ExperienceGenerator {
-    public String generateExperience(List<String> filePaths) throws IOException {
-        List<String> experienceLines = new ArrayList<>();
-        for (String filePath : filePaths) {
-            experienceLines.addAll(Files.readAllLines(Paths.get(filePath)));
+
+    private List < Experience > experiences;
+
+    public ExperienceGenerator(List < Experience > experiences) {
+        this.experiences = experiences;
+    }
+
+    public String generateExperience() {
+        StringBuilder experienceSection = new StringBuilder();
+        experienceSection.append(LatexUtils.generateSectionHeader("Experience"));
+        
+
+        for (Experience experience : experiences) {
+            experienceSection.append(formatExperience(experience));
         }
 
-        StringBuilder experienceSection = new StringBuilder("\\section*{Experience}\n");
-        for (String line : experienceLines) {
-            experienceSection.append(line).append(" \\\\\n");
-        }
         return experienceSection.toString();
+    }
+
+    private String formatExperience(Experience experience) {
+        StringBuilder experienceEntry = new StringBuilder();
+        experienceEntry.append("\\begin{tabularx}{\\textwidth}{ l X r }\n")
+                .append(formatExperienceHeader(experience))
+                .append("\\end{tabularx}\n")
+                .append("\\begin{itemize}[leftmargin=*,label=\\textbullet]\n");
+
+        for (String responsibility : experience.getResponsibilities()) {
+            experienceEntry.append(formatResponsibility(responsibility));
+        }
+
+        experienceEntry.append("\\end{itemize}\n")
+                .append("\\vspace{10pt}\n");
+
+        return experienceEntry.toString();
+    }
+
+    private String formatExperienceHeader(Experience experience) {
+        return String.format("\\textbf{%s} & \\centering \\textbf{%s} & \\textbf{%s} \\\\\n",
+                experience.getTitle(), experience.getCompany(), experience.getDate());
+    }
+
+    private String formatResponsibility(String responsibility) {
+        return String.format("  \\item %s\n", responsibility);
     }
 }

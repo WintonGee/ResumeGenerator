@@ -8,15 +8,26 @@ public class HeaderGenerator {
         String linkedIn = "linkedin.com/in/wintongee";
         String website = "wintongee.com";
         String gitHub = "github.com/wintongee";
+        String location = "San Francisco, CA";
 
         return String.format(
                 "\\begin{center}\n" +
-                "    \\textbf{\\Large %s} \\\\\n" +
-                "    \\vspace{5pt}\n" +
-                "    \\href{mailto:%s}{%s} \\textbar{} %s \\textbar{} \\href{https://%s}{%s} \\textbar{} \\href{https://%s}{%s} \\textbar{} \\href{https://%s}{%s}\n" +
+                "    \\begin{tabularx}{\\textwidth}{@{} >{\\raggedright\\arraybackslash}X >{\\centering\\arraybackslash}X >{\\raggedleft\\arraybackslash}X @{} }\n" +
+                "        \\begin{tabular}{@{}l@{}}\n" +
+                "            %s \\\\\n" +
+                "            \\href{mailto:%s}{%s} \\\\\n" +
+                "            %s\n" +
+                "        \\end{tabular} &\n" +
+                "        \\textbf{\\Large %s} &\n" +
+                "        \\begin{tabular}{@{}r@{}}\n" +
+                "            \\href{https://%s}{%s} \\\\\n" +
+                "            \\href{https://%s}{%s} \\\\\n" +
+                "            \\href{https://%s}{%s}\n" +
+                "        \\end{tabular}\n" +
+                "    \\end{tabularx}\n" +
                 "\\end{center}\n",
+                location, email, email, phone,
                 name,
-                email, email, phone,
                 linkedIn, linkedIn,
                 website, website,
                 gitHub, gitHub

@@ -1,22 +1,32 @@
 package com.example.generators;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
+import com.example.data.Project;
+import com.example.util.LatexUtils;
+
 import java.util.List;
 
 public class ProjectsGenerator {
-    public String generateProjects(List<String> filePaths) throws IOException {
-        List<String> projectsLines = new ArrayList<>();
-        for (String filePath : filePaths) {
-            projectsLines.addAll(Files.readAllLines(Paths.get(filePath)));
+
+    private List<Project> projects;
+
+    public ProjectsGenerator(List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public String generateProjects() {
+        StringBuilder projectSection = new StringBuilder();
+        projectSection.append(LatexUtils.generateSectionHeader("Projects"));
+
+        for (Project project : projects) {
+            projectSection.append("\\textbf{").append(LatexUtils.latexify(project.getName())).append("} (").append(LatexUtils.latexify(project.getKeywordDescription())).append(") \\\\\n")
+                          .append("\\begin{itemize}[leftmargin=*,label=\\textbullet]\n");
+            for (String detail : project.getDetails()) {
+                projectSection.append("  \\item ").append(LatexUtils.latexify(detail)).append("\n");
+            }
+            projectSection.append("\\end{itemize}\n")
+                          .append("\\vspace{10pt}\n");
         }
 
-        StringBuilder projectsSection = new StringBuilder("\\section*{Programming Projects}\n");
-        for (String line : projectsLines) {
-            projectsSection.append(line).append(" \\\\\n");
-        }
-        return projectsSection.toString();
+        return projectSection.toString();
     }
 }

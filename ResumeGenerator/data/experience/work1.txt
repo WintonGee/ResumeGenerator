@@ -1,0 +1,4 @@
+Software Engineering Intern | Ricoh USA June 2023 - September 2023
+- Deployed 8 Python-based Lambda functions on AWS Lambda as part of the Microservices team
+- Ensured quality through leveraging Postman for API testing and comparing test results across NoSQL servers
+- Followed the instructions and expectations for each Lambda function as specified on Azure DevOps

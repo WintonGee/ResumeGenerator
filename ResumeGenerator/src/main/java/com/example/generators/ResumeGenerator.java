@@ -1,63 +1,62 @@
 package com.example.generators;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Map;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class ResumeGenerator {
-    
-    // Escape special characters in LaTeX
-    private String escapeLaTeX(String content) {
-        return content.replace("\\", "\\textbackslash{}")
-                      .replace("#", "\\#")
-                      .replace("$", "\\$")
-                      .replace("%", "\\%")
-                      .replace("&", "\\&")
-                      .replace("_", "\\_")
-                      .replace("{", "\\{")
-                      .replace("}", "\\}")
-                      .replace("~", "\\textasciitilde{}")
-                      .replace("^", "\\textasciicircum{}");
+
+    private HeaderGenerator headerGenerator;
+    private EducationGenerator educationGenerator;
+    private ExperienceGenerator experienceGenerator;
+    private ProjectsGenerator projectsGenerator;
+
+    public ResumeGenerator(HeaderGenerator headerGenerator, EducationGenerator educationGenerator, ExperienceGenerator experienceGenerator, ProjectsGenerator projectsGenerator) {
+        this.headerGenerator = headerGenerator;
+        this.educationGenerator = educationGenerator;
+        this.experienceGenerator = experienceGenerator;
+        this.projectsGenerator = projectsGenerator;
     }
 
-    // Generate the header section of the resume
-    private String generateHeader(Map<String, String> headerData) {
-        return "\\begin{center}\n" +
-                "    \\textbf{\\Large " + escapeLaTeX(headerData.get("Name")) + "} \\\\\n" +
-                "    \\vspace{5pt}\n" +
-                "    \\href{mailto:" + escapeLaTeX(headerData.get("Email")) + "}{" + escapeLaTeX(headerData.get("Email")) + "} | " +
-                escapeLaTeX(headerData.get("Phone")) + " | " +
-                "\\href{" + escapeLaTeX(headerData.get("LinkedIn")) + "}{" + escapeLaTeX(headerData.get("LinkedIn")) + "} | " +
-                "\\href{" + escapeLaTeX(headerData.get("Website")) + "}{" + escapeLaTeX(headerData.get("Website")) + "} | " +
-                "\\href{" + escapeLaTeX(headerData.get("GitHub")) + "}{" + escapeLaTeX(headerData.get("GitHub")) + "}\n" +
-                "\\end{center}\n";
-    }
+    public void generateResume() {
+        String header = headerGenerator.generateHeader();
+        String education = educationGenerator.generateEducation();
+        String experience = experienceGenerator.generateExperience();
+        String projects = projectsGenerator.generateProjects();
 
-    // Generate a LaTeX section
-    private String generateSection(String title, String content) {
-        return "\\section*{" + escapeLaTeX(title) + "}\n" + escapeLaTeX(content) + "\n";
-    }
+        StringBuilder resumeContent = new StringBuilder();
+        resumeContent.append("\\documentclass[a4paper,10pt]{article}\n")
+                     .append("\\usepackage[margin=0.5in]{geometry}\n")
+                     .append("\\usepackage{hyperref}\n")
+                     .append("\\usepackage[utf8]{inputenc}\n")
+                     .append("\\usepackage{tabularx}\n")
+                     .append("\\usepackage{array}\n")
+                     .append("\\usepackage{enumitem}\n")
+                     .append("\\usepackage{fancyhdr}\n")
+                     .append("\\pagestyle{empty}\n")
+                     .append("\\hypersetup{\n")
+                     .append("    colorlinks=true,\n")
+                     .append("    linkcolor=blue,\n")
+                     .append("    filecolor=blue,\n")
+                     .append("    urlcolor=blue,\n")
+                     .append("}\n")
+                     .append("\\begin{document}\n")
+                     .append(header)
+                     .append(education)
+                     .append(experience)
+                     .append(projects)
+                     .append("\\end{document}\n");
 
-    // Main method to generate the resume
-    public void generateResume(Map<String, String> headerData, String education, String experience, String projects, String skills) throws IOException {
-        String resumeContent = "\\documentclass[a4paper,10pt]{article}\n" +
-                "\\usepackage[margin=0.5in]{geometry}\n" +
-                "\\usepackage{hyperref}\n" +
-                "\\usepackage{enumitem}\n" +
-                "\\usepackage{parskip}\n" +
-                "\\begin{document}\n" +
-                "\\pagenumbering{gobble}\n" +
-                generateHeader(headerData) +
-                generateSection("Education", education) +
-                generateSection("Experience", experience) +
-                generateSection("Programming Projects", projects) +
-                generateSection("Skills", skills) +
-                "\\end{document}\n";
+        try {
+            Files.write(Paths.get("output/resume.tex"), resumeContent.toString().getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        // Write the LaTeX document to a file
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("output/resume.tex"))) {
-            writer.write(resumeContent);
+        try {
+            Process process = Runtime.getRuntime().exec("pdflatex -output-directory=output output/resume.tex");
+            process.waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

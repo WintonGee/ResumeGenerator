@@ -1,7 +1,7 @@
 package com.example.util;
 
 public class LatexUtils {
-    public static String escapeLatex(String input) {
+    public static String latexify(String input) {
         if (input == null) {
             return "";
         }
@@ -15,5 +15,9 @@ public class LatexUtils {
                     .replace("%", "\\%")
                     .replace("$", "\\$")
                     .replace("&", "\\&");
+    }
+
+    public static String generateSectionHeader(String sectionName) {
+        return String.format("\\section*{%s}\n\\vspace{-18pt}\n\\noindent\\rule{\\textwidth}{0.4pt}\n\\vspace{5pt}\n", sectionName);
     }
 }

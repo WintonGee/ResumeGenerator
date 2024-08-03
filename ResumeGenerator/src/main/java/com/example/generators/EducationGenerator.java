@@ -1,5 +1,7 @@
 package com.example.generators;
 
+import com.example.util.LatexUtils;
+
 public class EducationGenerator {
 
     private static final String INSTITUTION = "California Polytechnic State University";
@@ -10,10 +12,7 @@ public class EducationGenerator {
     public String generateEducation() {
         StringBuilder education = new StringBuilder();
 
-        education.append("\\section*{Education}\n")
-                 .append("\\vspace{-18pt}\n")  // Adjust space above the line
-                 .append("\\noindent\\rule{\\textwidth}{0.4pt}\n")
-                 .append("\\vspace{5pt}\n")  // Adjust space below the line
+        education.append(LatexUtils.generateSectionHeader("Education"))
                  .append("\\begin{tabularx}{\\textwidth}{@{}lXr@{}}\n")
                  .append("\\textbf{").append(INSTITUTION).append("} & & ").append(LOCATION).append(" \\\\\n")
                  .append(DEGREE).append(" & & ").append(DATES).append("\n")
