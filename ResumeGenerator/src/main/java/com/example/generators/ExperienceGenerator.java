@@ -25,7 +25,7 @@ public class ExperienceGenerator {
             for (String responsibility : exp.getResponsibilities()) {
                 experience.append("  \\item ").append(responsibility).append("\n");
             }
-            experience.append("\\end{itemize}\n");
+            experience.append("\\end{itemize}\n").append("\\vspace{10pt}\n");
         }
 
         return experience.toString();

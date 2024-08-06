@@ -30,6 +30,9 @@ public class Experience {
         return date;
     }
 
+    // TODO load the final dynamic string then latexify it
+    
+
     public List<String> getResponsibilities() {
         return responsibilities;
     }

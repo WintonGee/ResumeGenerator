@@ -18,6 +18,6 @@ public class LatexUtils {
     }
 
     public static String generateSectionHeader(String sectionName) {
-        return String.format("\\section*{%s}\n\\vspace{-18pt}\n\\noindent\\rule{\\textwidth}{0.4pt}\n\\vspace{2pt}\n", sectionName);
+        return String.format("\\section*{\\large %s}\n\\vspace{-18pt}\n\\noindent\\rule{\\textwidth}{0.4pt}\n\\vspace{5pt}\n", sectionName.toUpperCase());
     }
 }
