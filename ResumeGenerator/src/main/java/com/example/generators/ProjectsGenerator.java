@@ -15,7 +15,7 @@ public class ProjectsGenerator {
 
     public String generateProjects() {
         StringBuilder projectSection = new StringBuilder();
-        projectSection.append(LatexUtils.generateSectionHeader("Programming Projects"));
+        projectSection.append(LatexUtils.generateSectionHeader("Projects"));
 
         for (Project project : projects) {
             projectSection.append("\\begin{tabularx}{\\textwidth}{@{}lXr@{}}\n")

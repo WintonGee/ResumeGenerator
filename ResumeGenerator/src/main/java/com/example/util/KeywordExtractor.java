@@ -2,6 +2,7 @@ package com.example.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,6 +13,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
 
 public class KeywordExtractor {
     private static final Logger LOGGER = Logger.getLogger(KeywordExtractor.class.getName());
@@ -69,5 +72,19 @@ public class KeywordExtractor {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
         return sortedMap;
+    }
+
+    public static Map<String, Integer> readKeywordsFromJson() {
+        Gson gson = new Gson();
+        Map<String, Integer> keywordFrequency = new HashMap<>();
+
+        try {
+            String json = new String(Files.readAllBytes(Paths.get("output/keywords.json")), StandardCharsets.UTF_8);
+            keywordFrequency = gson.fromJson(json, new TypeToken<Map<String, Integer>>(){}.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return keywordFrequency;
     }
 }

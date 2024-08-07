@@ -24,5 +24,8 @@ public class Main {
 
         ResumeGenerator resumeGenerator = new ResumeGenerator(headerGenerator, educationGenerator, experienceGenerator, projectsGenerator, skillsGenerator);
         resumeGenerator.generateResume();
+
+        // TEST
+        System.out.println(KeywordExtractor.readKeywordsFromJson());
     }
 }

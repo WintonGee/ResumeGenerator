@@ -3,40 +3,24 @@ package com.example.data;
 import java.util.*;
 
 public enum KeywordCategory {
-    BACKEND("Agile", "Amazon Web Services", "API", "API Gateway", "ASP.NET", "AWS", "Azure", "Back End", 
-            "BEA WebLogic", "C", "C#", "C++", "CI/CD", "Cloud Computing", "Collaboration", "Computer Science", 
-            "Continuous Deployment", "Continuous Integration", "Database", "Django", "Docker", "Elixir", 
-            "Express.js", "Flask", "Full Stack", "Git", "Go", "Google Cloud Platform", "GraphQL", "gRPC", 
-            "Hibernate", "Java", "JavaScript", "JWT", "Kafka", "Kotlin", "Kubernetes", "Load Balancing", 
-            "Message Brokers", "Microservices", "MongoDB", "MVC", "MySQL", "Node.js", "NoSQL", "OAuth", 
-            "ORM Technologies", "Performance Tuning", "PHP", "PostgreSQL", "Postman", "Python", "RabbitMQ", 
-            "Redis", "REST API", "RESTful", "Ruby", "Ruby on Rails", "Scala", "Scalability", "Serverless", 
-            "Service Mesh", "SOAP", "Software Development", "Software Engineering", "Spring", "Spring MVC", 
-            "SQL", "Technical", "TDD", "Terraform", "TypeScript", "Web Development", "WebSphere"),
 
-    FRONTEND("AJAX", "Accessibility", "Angular", "Ant Design", "Backbone.js", "Babel", "Bootstrap", 
-             "Canvas API", "Chakra UI", "CSS", "CSR", "Cross-Browser Compatibility", "D3.js", "ES6", 
-             "GraphQL", "HTML", "JavaScript", "jQuery", "LESS", "Material-UI", "MobX", "Next.js", 
-             "Nuxt.js", "Postman", "Progressive Web Apps", "React", "Redux", "Responsive Design", "SASS", 
-             "SEO", "Service Workers", "Single Page Applications", "SPA", "SSR", "Styled Components", 
-             "Tailwind CSS", "Three.js", "TypeScript", "Vue.js", "WebAssembly", "Webpack", "WebSockets"),
+    PROGRAMMING_LANGUAGES("C", "C#", "C++", "Java", "JavaScript", "Python", "Ruby", "Scala", "Kotlin", "Go", "PHP", "Swift", "TypeScript", "Rust", "Perl"),
 
-    DATABASE("ACID", "Aerospike", "Amazon RDS", "ArangoDB", "BASE", "CAP Theorem", "Cassandra", "ClickHouse", 
-             "CockroachDB", "CouchDB", "Couchbase", "Data Lakes", "Data Warehousing", "Database Tuning", 
-             "DynamoDB", "Elasticsearch", "ETL", "Firebase Realtime Database", "Firestore", "Google BigQuery", 
-             "GraphDB", "HBase", "Indexing", "InfluxDB", "MariaDB", "Memcached", "Microsoft SQL Server", 
-             "MongoDB", "MySQL", "Neo4j", "NewSQL", "NoSQL", "Oracle DB", "PostgreSQL", "Presto", 
-             "Query Optimization", "Redis", "Redshift", "Replication", "Sharding", "Snowflake", "SQLite", 
-             "TimescaleDB", "Trino", "VoltDB"),
+    FRONTEND_FRAMEWORKS("React", "Angular", "Vue.js", "Next.js", "Nuxt.js", "Svelte", "Backbone.js", "Bootstrap", "Tailwind CSS", "Material-UI", "Chakra UI", "Ant Design"),
 
-    AI_ML("Anomaly Detection", "AutoML", "AWS SageMaker", "Big Data", "CatBoost", "Computer Vision", 
-          "Cross-Validation", "Data Analysis", "Data Preprocessing", "Data Visualization", "Deep Learning", 
-          "Feature Engineering", "Flume", "Generative Models", "Google AI Platform", "H2O.ai", "Hadoop", 
-          "Hive", "Hyperparameter Tuning", "Image Processing", "Jupyter", "Kafka", "Keras", "LightGBM", 
-          "Machine Learning", "Matplotlib", "MLOps", "Model Deployment", "Model Evaluation", 
-          "Natural Language Processing", "Natural Language Understanding", "NLTK", "NumPy", "OpenCV", 
-          "Pandas", "Postman", "PyTorch", "Reinforcement Learning", "Scikit-Learn", "Seaborn", "Spark", 
-          "SpaCy", "Speech Recognition", "TensorFlow", "Text Mining", "Time Series Analysis", "XGBoost");
+    BACKEND_FRAMEWORKS("Spring", "Spring Boot", "Django", "Flask", "Ruby on Rails", "Express.js", "ASP.NET", "Hibernate", "Node.js", "Koa", "Gin"),
+
+    DATABASES("MySQL", "PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "SQLite", "MariaDB", "Oracle DB", "Microsoft SQL Server", "Cassandra", "Firebase Realtime Database", "Firestore", "DynamoDB", "CouchDB", "Neo4j", "GraphDB"),
+
+    TOOLS("Git", "Docker", "Kubernetes", "Terraform", "Ansible", "Jenkins", "Travis CI", "CircleCI", "AWS", "Azure", "Google Cloud Platform", "GitHub", "GitLab", "Bitbucket", "JIRA", "Confluence", "Slack"),
+
+    CONCEPTS("Microservices", "CI/CD", "REST API", "GraphQL", "Agile", "Scrum", "TDD", "BDD", "Serverless", "Cloud Computing", "DevOps", "Performance Tuning", "Scalability", "Load Balancing", "OAuth", "JWT", "Message Brokers", "Service Mesh", "MVC", "ORM", "API Gateway"),
+
+    AI_ML("Machine Learning", "Deep Learning", "Natural Language Processing", "Computer Vision", "TensorFlow", "Keras", "PyTorch", "Scikit-Learn", "Pandas", "NumPy", "Jupyter", "Kaggle", "AWS SageMaker", "Google AI Platform", "Hadoop", "Spark", "Kafka", "Data Visualization", "Data Analysis", "Feature Engineering", "Model Deployment", "Hyperparameter Tuning"),
+
+    VERSION_CONTROL("GitHub", "GitLab", "Bitbucket"),
+    
+    PROJECT_MANAGEMENT("JIRA", "Trello", "Asana", "Monday.com");
 
     private final List<String> keywords;
 
@@ -48,5 +32,9 @@ public enum KeywordCategory {
 
     public List<String> getKeywords() {
         return keywords;
+    }
+
+    public static KeywordOptions getKeywordOptions(KeywordCategory category, String defaultValue) {
+        return new KeywordOptions(defaultValue, category.getKeywords().toArray(new String[0]));
     }
 }
